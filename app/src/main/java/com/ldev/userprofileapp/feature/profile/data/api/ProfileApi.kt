@@ -5,7 +5,7 @@ import com.ldev.userprofileapp.feature.profile.data.api.model.MainModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ProfileScreenApi {
+interface ProfileApi {
     @GET(Constants.BASE_PROFILE_PATH)
     suspend fun getProfile(
         @Query("inc") inc: String = "name,picture,location,phone"
