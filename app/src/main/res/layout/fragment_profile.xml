@@ -1,24 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/srlProfile"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Full name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/ivPhoto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="@dimen/margin_start"
+                android:layout_marginTop="@dimen/margin_top"
+                android:elevation="@dimen/elevation_appbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_start"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
+                app:layout_constraintStart_toEndOf="@+id/ivPhoto"
+                app:layout_constraintTop_toTopOf="@+id/ivPhoto"
+                tools:text="Full name" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/ivPhoto">
+
+                <View
+                    android:id="@+id/dividerPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/margin_start"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/image_width_height"
+                        android:layout_height="@dimen/image_width_height"
+                        android:layout_marginVertical="@dimen/margin_top"
+                        android:layout_marginStart="@dimen/margin_start"
+                        android:src="@drawable/ic_cake" />
+
+                    <TextView
+                        android:id="@+id/tvDateOfBirth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_start"
+                        tools:text="23/10/1993" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/margin_start"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/image_width_height"
+                        android:layout_height="@dimen/image_width_height"
+                        android:layout_marginVertical="@dimen/margin_top"
+                        android:layout_marginStart="@dimen/margin_start"
+                        android:src="@drawable/ic_city" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvCountry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start"
+                            tools:text="USA" />
+
+                        <TextView
+                            android:id="@+id/tvCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start"
+                            tools:text="USA" />
+
+                        <TextView
+                            android:id="@+id/tvStreet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_start"
+                            tools:text="USA" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/image_width_height"
+                        android:layout_height="@dimen/image_width_height"
+                        android:layout_marginVertical="@dimen/margin_top"
+                        android:layout_marginStart="@dimen/margin_start"
+                        android:src="@drawable/ic_location" />
+
+                    <TextView
+                        android:id="@+id/tvCoordinates"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_start"
+                        tools:text="2374089234: 3459873453" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/margin_start"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/image_width_height"
+                        android:layout_height="@dimen/image_width_height"
+                        android:layout_marginVertical="@dimen/margin_top"
+                        android:layout_marginStart="@dimen/margin_start"
+                        android:src="@drawable/ic_smartphone" />
+
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_start"
+                        tools:text="9834 345 354345 " />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/margin_start"
+                    android:background="?android:attr/listDivider" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

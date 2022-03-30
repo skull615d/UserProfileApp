@@ -13,4 +13,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="CustomCircularImage">
+        <item name="elevation">@dimen/elevation_appbar</item>
+    </style>
 </resources>

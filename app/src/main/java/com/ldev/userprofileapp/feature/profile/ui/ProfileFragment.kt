@@ -2,11 +2,14 @@ package com.ldev.userprofileapp.feature.profile.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.ldev.userprofileapp.R
 import com.ldev.userprofileapp.databinding.FragmentProfileBinding
+import com.ldev.userprofileapp.feature.base.utils.loadImage
+import com.ldev.userprofileapp.feature.base.utils.toStringFormat
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -30,7 +33,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         binding.apply {
             viewState.profile?.let {
                 tvName.text = it.name
+                ivPhoto.loadImage(it.picture)
+                tvCity.text = it.city
+                tvCountry.text = it.country
+                tvPhone.text = it.phone
+                tvStreet.text = it.street
+                val coordinates = "${it.coordinates.latitude}; ${it.coordinates.longitude}"
+                tvCoordinates.text = coordinates
+                tvDateOfBirth.text = it.dateOfBirth.toStringFormat("dd.MM.yyyy")
             }
+            ivPhoto.isGone = viewState.profile == null
             srlProfile.isRefreshing = viewState.isLoading
             viewState.errorMessage?.let {
                 Snackbar.make(

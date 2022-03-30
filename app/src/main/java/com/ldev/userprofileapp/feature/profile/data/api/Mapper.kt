@@ -1,5 +1,6 @@
 package com.ldev.userprofileapp.feature.profile.data.api
 
+import com.ldev.userprofileapp.feature.base.utils.toDate
 import com.ldev.userprofileapp.feature.profile.data.api.model.CoordinatesModel
 import com.ldev.userprofileapp.feature.profile.data.api.model.MainModel
 import com.ldev.userprofileapp.feature.profile.domain.model.CoordinatesDomainModel
@@ -17,13 +18,13 @@ fun MainModel.toDomain(): ProfileDomainModel? {
     return profile?.let {
         ProfileDomainModel(
             name = "${it.name.title} ${it.name.first} ${it.name.last}",
-            picture = it.picture.medium,
+            picture = it.picture.large,
             phone = it.phone,
             country = it.location.country,
             city = it.location.city,
             street = it.location.street.name,
             coordinates = it.location.coordinates.toDomain(),
-            dateOfBirth = date//TODO set dateOfBirth
+            dateOfBirth = it.dob.date.toDate()
         )
     }
 }
