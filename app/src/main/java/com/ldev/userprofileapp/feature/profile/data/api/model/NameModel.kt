@@ -8,5 +8,7 @@ data class NameModel(
     @SerializedName("first")
     val first: String,
     @SerializedName("last")
-    val last: String
+    val last: String,
+    @SerializedName("dob")
+    val dob: DobModel
 )

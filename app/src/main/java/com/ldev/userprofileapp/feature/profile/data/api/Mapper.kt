@@ -4,6 +4,7 @@ import com.ldev.userprofileapp.feature.profile.data.api.model.CoordinatesModel
 import com.ldev.userprofileapp.feature.profile.data.api.model.MainModel
 import com.ldev.userprofileapp.feature.profile.domain.model.CoordinatesDomainModel
 import com.ldev.userprofileapp.feature.profile.domain.model.ProfileDomainModel
+import java.util.*
 
 fun CoordinatesModel.toDomain() = CoordinatesDomainModel(
     latitude = latitude,
@@ -12,6 +13,7 @@ fun CoordinatesModel.toDomain() = CoordinatesDomainModel(
 
 fun MainModel.toDomain(): ProfileDomainModel? {
     val profile = this.results.firstOrNull()
+    val date = Calendar.getInstance().time
     return profile?.let {
         ProfileDomainModel(
             name = "${it.name.title} ${it.name.first} ${it.name.last}",
@@ -21,7 +23,7 @@ fun MainModel.toDomain(): ProfileDomainModel? {
             city = it.location.city,
             street = it.location.street.name,
             coordinates = it.location.coordinates.toDomain(),
-            dateOfBirth = //TODO set dateOfBirth
+            dateOfBirth = date//TODO set dateOfBirth
         )
     }
 }

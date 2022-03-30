@@ -8,6 +8,6 @@ import retrofit2.http.Query
 interface ProfileApi {
     @GET(Constants.BASE_PROFILE_PATH)
     suspend fun getProfile(
-        @Query("inc") inc: String = "name,picture,location,phone"
+        @Query("inc") inc: String = "name,picture,location,phone,dob"
     ): MainModel
 }
