@@ -11,4 +11,6 @@ data class ProfileModel(
     val location: LocationModel,
     @SerializedName("phone")
     val phone: String,
+    @SerializedName("dob")
+    val dob: DobModel
 )

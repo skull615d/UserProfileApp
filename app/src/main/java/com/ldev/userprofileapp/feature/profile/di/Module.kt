@@ -5,6 +5,8 @@ import com.ldev.userprofileapp.feature.profile.data.api.ProfileRemoteSource
 import com.ldev.userprofileapp.feature.profile.data.api.ProfileRepo
 import com.ldev.userprofileapp.feature.profile.data.api.ProfileRepoImpl
 import com.ldev.userprofileapp.feature.profile.domain.ProfileInteractor
+import com.ldev.userprofileapp.feature.profile.ui.ProfileViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
@@ -23,5 +25,9 @@ val profileModule = module {
 
     single<ProfileInteractor> {
         ProfileInteractor(get<ProfileRepo>())
+    }
+
+    viewModel {
+        ProfileViewModel(get<ProfileInteractor>())
     }
 }
