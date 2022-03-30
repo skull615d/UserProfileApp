@@ -1,6 +1,7 @@
 package com.ldev.userprofileapp
 
 import android.app.Application
+import com.ldev.userprofileapp.feature.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -11,7 +12,7 @@ class App: Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules()
+            modules(appModule)
         }
     }
 }
