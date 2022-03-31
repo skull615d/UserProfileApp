@@ -1,6 +1,6 @@
 package com.ldev.userprofileapp.feature.profile.ui
 
-import com.ldev.userprofileapp.feature.base.view_model.Event
+import com.ldev.userprofileapp.base.view_model.Event
 import com.ldev.userprofileapp.feature.profile.domain.model.ProfileDomainModel
 
 data class ViewState(

@@ -1,4 +1,4 @@
-package com.ldev.userprofileapp.feature.base.view_model
+package com.ldev.userprofileapp.base.view_model
 
 sealed class Either<out LEFT, out RIGHT> {
 

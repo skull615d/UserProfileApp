@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.ldev.userprofileapp.R
+import com.ldev.userprofileapp.base.utils.loadImage
+import com.ldev.userprofileapp.base.utils.setThrottledClickListener
+import com.ldev.userprofileapp.base.utils.toStringFormat
 import com.ldev.userprofileapp.databinding.FragmentProfileBinding
-import com.ldev.userprofileapp.feature.base.utils.loadImage
-import com.ldev.userprofileapp.feature.base.utils.setThrottledClickListener
-import com.ldev.userprofileapp.feature.base.utils.toStringFormat
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {

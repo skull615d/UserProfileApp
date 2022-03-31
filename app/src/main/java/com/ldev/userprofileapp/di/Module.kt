@@ -1,6 +1,6 @@
-package com.ldev.userprofileapp.feature.di
+package com.ldev.userprofileapp.di
 
-import com.ldev.userprofileapp.feature.base.constants.Constants
+import com.ldev.userprofileapp.base.constants.Constants
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit

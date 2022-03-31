@@ -1,6 +1,6 @@
 package com.ldev.userprofileapp.feature.profile.data.api
 
-import com.ldev.userprofileapp.feature.base.utils.toDate
+import com.ldev.userprofileapp.base.utils.toDate
 import com.ldev.userprofileapp.feature.profile.data.api.model.CoordinatesModel
 import com.ldev.userprofileapp.feature.profile.data.api.model.MainModel
 import com.ldev.userprofileapp.feature.profile.domain.model.CoordinatesDomainModel

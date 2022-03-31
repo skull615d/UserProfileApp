@@ -1,4 +1,4 @@
-package com.ldev.userprofileapp.feature.base.utils
+package com.ldev.userprofileapp.base.utils
 
 import android.graphics.drawable.Drawable
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.annotation.DrawableRes
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.ldev.userprofileapp.R
-import com.ldev.userprofileapp.feature.base.constants.Constants
+import com.ldev.userprofileapp.base.constants.Constants
 import java.text.SimpleDateFormat
 import java.util.*
 

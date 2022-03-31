@@ -1,4 +1,4 @@
-package com.ldev.userprofileapp.feature.base.constants
+package com.ldev.userprofileapp.base.constants
 
 object Constants {
     // API
