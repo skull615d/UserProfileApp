@@ -17,20 +17,23 @@
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/ivPhoto"
+                style="@style/CustomCircularImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="@dimen/margin_start"
                 android:layout_marginTop="@dimen/margin_top"
-                android:elevation="@dimen/elevation_appbar"
+                android:src="@drawable/ic_account"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvName"
-                android:layout_width="wrap_content"
+                style="@style/BoldText.Title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_start"
+                android:layout_margin="@dimen/margin_start"
                 app:layout_constraintBottom_toBottomOf="@+id/ivPhoto"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivPhoto"
                 app:layout_constraintTop_toTopOf="@+id/ivPhoto"
                 tools:text="Full name" />
@@ -119,8 +122,10 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcCoordinates"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -147,8 +152,10 @@
                     android:background="?android:attr/listDivider" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llcPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 

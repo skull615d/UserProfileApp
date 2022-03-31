@@ -3,5 +3,6 @@
     <dimen name="margin_top">16dp</dimen>
     <dimen name="margin_start">16dp</dimen>
     <dimen name="elevation_appbar">4dp</dimen>
+    <dimen name="elevation_photo">6dp</dimen>
     <dimen name="image_width_height">30dp</dimen>
 </resources>

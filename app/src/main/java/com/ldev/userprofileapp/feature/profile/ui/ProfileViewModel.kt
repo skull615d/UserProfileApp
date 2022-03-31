@@ -1,16 +1,12 @@
 package com.ldev.userprofileapp.feature.profile.ui
 
-import androidx.lifecycle.viewModelScope
 import com.ldev.userprofileapp.feature.base.view_model.BaseViewModel
 import com.ldev.userprofileapp.feature.base.view_model.Event
 import com.ldev.userprofileapp.feature.profile.domain.ProfileInteractor
-import kotlinx.coroutines.launch
 
 class ProfileViewModel(private val interactor: ProfileInteractor) : BaseViewModel<ViewState>() {
     init {
-        viewModelScope.launch {
             processDataEvent(DataEvent.GetData)
-        }
     }
 
     override fun initialViewState() =
