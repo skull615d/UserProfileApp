@@ -18,9 +18,17 @@ class ProfileViewModel(private val interactor: ProfileInteractor) : BaseViewMode
 
     override suspend fun reduce(event: Event, previousState: ViewState): ViewState? {
         when (event) {
-            is DataEvent.GetData, UiEvent.OnRefreshSwipe -> {
+            is DataEvent.GetData -> {
                 processDataEvent(DataEvent.LoadData(true))
                 interactor.getProfile().fold(
+                    onError = { processDataEvent(DataEvent.ErrorProfileRequest(it.localizedMessage)) },
+                    onSuccess = { processDataEvent(DataEvent.SuccessProfileRequest(it)) }
+                )
+            }
+
+            is UiEvent.OnRefreshSwipe -> {
+                processDataEvent(DataEvent.LoadData(true))
+                interactor.updateProfile().fold(
                     onError = { processDataEvent(DataEvent.ErrorProfileRequest(it.localizedMessage)) },
                     onSuccess = { processDataEvent(DataEvent.SuccessProfileRequest(it)) }
                 )
