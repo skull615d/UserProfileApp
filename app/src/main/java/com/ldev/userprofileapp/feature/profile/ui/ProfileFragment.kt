@@ -1,5 +1,6 @@
 package com.ldev.userprofileapp.feature.profile.ui
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,6 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     companion object {
+        private const val ZOOM_DEFAULT_MAP = 9
         fun newInstance() = ProfileFragment()
     }
 
@@ -34,10 +36,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:${tvPhone.text}")))
             }
             llcCoordinates.setThrottledClickListener {
-                val gmmIntentUri = Uri.parse("google.streetview:cbll=${tvCoordinates.text}")
-                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-                mapIntent.setPackage("com.google.android.apps.maps")
-                startActivity(mapIntent)
+                viewModel.viewState.value?.profile?.let {
+                    showMap(
+                        latitude = it.coordinates.latitude,
+                        longitude = it.coordinates.longitude
+                    )
+                }
             }
         }
     }
@@ -63,6 +67,17 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
+        }
+    }
+
+    private fun showMap(latitude: Double, longitude: Double) {
+        val gmmIntentUri = Uri.parse("geo:${latitude},${longitude}?z=${ZOOM_DEFAULT_MAP}")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        try {
+            startActivity(mapIntent)
+        } catch (e: ActivityNotFoundException) {
+            Snackbar.make(binding.root, R.string.map_error, Snackbar.LENGTH_SHORT).show()
         }
     }
 }

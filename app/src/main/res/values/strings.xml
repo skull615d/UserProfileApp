@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UserProfileApp</string>
+    <string name="map_error">Not found apps for map</string>
 </resources>
